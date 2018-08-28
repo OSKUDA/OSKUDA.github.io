@@ -17,7 +17,7 @@ title: Oskar K. Shrestha
 email: oscarstha4770181@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Hi, My name is Oskar K. Shrestha. Welcome to my website. I will be posting blogs and sharing pictures. I hope you enjoy it.
-baseurl: "/oskarkshrestha" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://oskuda.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 twitter_path: https://twitter.com/OskarShrestha
