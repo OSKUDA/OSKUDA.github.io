@@ -8,7 +8,8 @@
 <title>Oskar K. Shrestha</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-
+<script type="text/javascript" src="/assets/js/jquery3.3.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/functions.js"></script>
 
 </head>
 <body>
@@ -45,16 +46,24 @@
 
 	</nav>
 	<div class="blog-index-title">
-		<h1 class="featured-blog-post-title">Featured Blog Post</h1>
-		<a href="" class="read-featured-blog-post">Read</a>		
+		<h1 class="featured-blog-post-title" id="top">Featured Blog Post</h1>
+		<a href="/blog#MIT"  class="read-featured-blog-post">Read</a>
+		
 	</div>	
 </header>
+
+
+
+
+
+
+
 
 <body>
 <div class="blog-whole-content-wrap">
 	<div class="blog-content-wrap">
 		<div class="blog-content-image blog-content-image-one"></div>
-			<div class="blog-content-text">
+			<div class="blog-content-text" id="MIT">
 				<h4>MIT’S INTERCONNECTED EMBEDDED SYSTEM</h4>
 				<p>Technology has been in a climb that never stopped, every 18 months its power doubles. We ought to know and keep ourselves updated. As luck would have it, MIT&rsquo;s Interconnected Embedded System workshop was announced open. After, going through different question the application form was finally completed. Out of approx. 120 like us, we got through the application process and buckled up for the journey ahead of us. The workshop kicked off on 27th July 2017 for a six week long journey at Karkhana.<br>
 <br>
@@ -73,7 +82,7 @@ Overall, the project gave an enriching experience to us and was mesmerized in ev
 	
 	<div class="blog-content-wrap">
 		<div class="blog-content-image blog-content-image-two"></div>
-			<div class="blog-content-text">
+			<div class="blog-content-text" id="OSM">
 				<h4>Open Street Map</h4>
 				<h5><em>OSM and why does it exist?</em></h5><p>
 Have you ever wondered about traveling to a new destination without having enough information such as Where to? How far? Which way? Does it even have road leading there? Do I need to cross a river? Unless, you possess an extra-human power, it&rsquo;s next to impossible. If you scroll through travel guides you will not find a page that doesn&rsquo;t mention map. Map is an essential part of our daily life. From thousands of years back till today, we humans have been using maps to navigate. Use and complexity of map has developed over the years. To achieve such quality mappers sketch digital map through a process called mapping. Different approaches exist for mapping, resulting in different types of organization with their own peculiar maps. Out of many, Open Street Map (OSM) is an open data mapping organization. In a community driven with free data, OSM is in the spotlight. Its work in humanitarian sector and precious spinoffs has generated new and advanced mapping world enticing cluster of people toward OSM. The journey embarked by OSM started slow, but hustled its way up and forward.<br>
@@ -134,6 +143,25 @@ OSM has multiple platforms to foster in. From the use of map data in smartphones
 			</div>
 	</div>
 </div>
+<button id="btnclickme">Go to top</button>
+<script type="text/javascript">
+	var amountScrolled = 900;
+	$('#btnclickme').click(function() {
+		$('html, body').animate({
+			scrollTop: $("#top").offset().top
+		}, 2000);
+		
+	})
+	$(window).scroll(function() {
+	    if ( $(window).scrollTop() > amountScrolled ) {
+	        $('#btnclickme').fadeIn('slow');
+	    } else {
+	        $('#btnclickme').fadeOut('slow');
+	    }
+	});
+	// jquery script to scroll
+</script>
+</body>
 </body>
 <hr>
 
