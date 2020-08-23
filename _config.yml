@@ -26,6 +26,7 @@ facebook_path: https://www.facebook.com/oskarkshrestha
 youtube_path: https://www.youtube.com/channel/UCH70pFq6LHcgSH17RN1d-9g
 
 pathToBlogImgBin: /assets/img/blog/
+future: true
 
 
 # Build settings
