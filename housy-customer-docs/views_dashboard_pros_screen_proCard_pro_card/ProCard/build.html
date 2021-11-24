@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the ProCard class, for the Dart programming language.">
+  <title>build method - ProCard class - pro_card library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">housy_customer</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/views_dashboard_pros_screen_proCard_pro_card-library.html">pro_card</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard-class.html">ProCard</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  &#47;&#47; var currentUser = context.read&lt;AuthCubit&gt;().state as Authenticated;
+  &#47;&#47; log(
+  &#47;&#47;   &#39;&#39;&#39;${currentUser.location!.latitude},
+  &#47;&#47;     ${currentUser.location!.longitude}
+  &#47;&#47;   =&gt;&gt;&gt; ${prosDetail.location!.latitude},
+  &#47;&#47;       ${prosDetail.location!.longitude}&#39;&#39;&#39;,
+  &#47;&#47; );
+  &#47;&#47; var distance = Geolocator.distanceBetween(
+  &#47;&#47;       currentUser.location!.latitude,
+  &#47;&#47;       currentUser.location!.longitude,
+  &#47;&#47;       prosDetail.location!.latitude,
+  &#47;&#47;       prosDetail.location!.longitude,
+  &#47;&#47;     ) &#47;
+  &#47;&#47;     1000;
+
+  final isSingleJob = job.length == 1 ? true : false;
+
+  final budget = job.first.proOffers?.where((element) {
+    var isP = element[&#39;proId&#39;] == prosDetail.pro_uid;
+    return isP;
+  }).toList()[0][&#39;budget&#39;];
+
+  final time = job.first.proOffers?.where((element) {
+        return element[&#39;proId&#39;] == prosDetail.pro_uid;
+      }).toList()[0][&#39;timeSlot&#39;]?[0] ??
+      {&#39;start&#39;: Timestamp.now(), &#39;end&#39;: Timestamp.now()};
+
+  final timeStart = time[&#39;start&#39;] is Timestamp
+      ? (time[&#39;start&#39;] as Timestamp).toDate()
+      : DateTime.parse(time[&#39;start&#39;]);
+
+  final timeEnd = time[&#39;end&#39;] is Timestamp
+      ? (time[&#39;end&#39;] as Timestamp).toDate()
+      : DateTime.parse(time[&#39;end&#39;]);
+
+  final startTime =
+      &#39;&#39;&#39;${timeStart.hour &gt; 12 ? timeStart.hour - 12 : timeStart.hour}:${timeStart.minute.toString().length == 1 ? timeStart.minute.toString().padRight(2, &#39;0&#39;) : timeStart.minute}&#39;&#39;&#39;;
+  final endTime =
+      &#39;&#39;&#39;${timeEnd.hour &gt; 12 ? timeEnd.hour - 12 : timeEnd.hour}:${timeEnd.minute.toString().length == 1 ? timeEnd.minute.toString().padRight(2, &#39;0&#39;) : timeEnd.minute}&#39;&#39;&#39;;
+  final isStartTimeInPM = timeStart.hour &#47; 12 &gt; 1 ? true : false;
+  final isEndTimeInPm = timeEnd.hour &#47; 12 &gt; 1 ? true : false;
+
+  var _date =
+      DateFormat(&#39;d MMM&#39;).format((job.first.date?[0] as Timestamp).toDate());
+
+  var jobCompletedCount = prosDetail.jobsCompletedCount ?? 0;
+  var jobHiredCount = prosDetail.jobsHiredCount ?? 0;
+  var jobSuccessIndicator = jobCompletedCount &#47; jobHiredCount;
+
+  return Padding(
+    padding: EdgeInsets.symmetric(horizontal: (20.w), vertical: 8.h),
+    child: Container(
+      height: 250.h,
+      decoration: roundedContainerDecoration.copyWith(
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 5,
+            color: Colors.black.withOpacity(0.25),
+          ),
+        ],
+        color: Colors.white,
+      ),
+      child: ClipRect(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            &#47;&#47;&#47; Professional type and Call and Message buttons.
+            &#47;&#47;&#47; This is the top part of the card.
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      bottomRight: Radius.circular(14),
+                    ),
+                    color: const Color(0xFFFFE5E9).withAlpha(102),
+                  ),
+                  child: Text(
+                    prosDetail.service_type != null
+                        ? prosDetail.service_type![0].toUpperCase() +
+                            prosDetail.service_type!
+                                .substring(1)
+                                .toLowerCase()
+                        : &#39;&#39;,
+                    style: normal14TextStyle.copyWith(
+                      color: kPinkAccentColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+
+                &#47;&#47;&#47; if is not a single job and parent tab is onGoing
+                &#47;&#47;&#47; true, call and message buttons
+                &#47;&#47;&#47; false, budget offer UI
+                !isSingleJob &amp;&amp; parentTab == prosScreenTab.onGoing
+                    ? Row(
+                        children: [
+                          Container(
+                            width: 38.w,
+                            height: 38.h,
+                            margin: EdgeInsets.only(
+                              top: 8.h,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 1,
+                                  blurRadius: 1,
+                                  offset: const Offset(0, 0),
+                                ),
+                              ],
+                            ),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () async {
+                                &#47;&#47;&#47; set the number here
+                                var number = prosDetail.phone_number ?? &#39;&#39;;
+                                var res =
+                                    await FlutterPhoneDirectCaller.callNumber(
+                                            number) ??
+                                        false;
+                                log(&#39;Call Res =&gt; $res&#39;);
+                                log(&#39;${prosDetail.pro_uid}   --  $jobId&#39;);
+                                &#47;&#47; await DatabaseService().addContactedPro(
+                                &#47;&#47;     prosDetail.pro_uid ?? &#39;&#39;, jobId ?? &#39;&#39;);
+                                await Dio().post(
+                                  &#39;https:&#47;&#47;housy-server.herokuapp.com&#47;notify_customer&#47;hireConfirmation&#39;,
+                                  data: {
+                                    &#39;cuid&#39;:
+                                        DatabaseService.auth.currentUser.uid,
+                                    &#39;proid&#39;: prosDetail.pro_uid
+                                  },
+                                ).then((value) =&gt; log(value.toString()));
+                              },
+                              icon: Icon(
+                                IconlyBold.call,
+                                size: 24.sp,
+                                color: kPrimaryColor,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 38.h,
+                            width: 38.w,
+                            margin: EdgeInsets.only(
+                              top: 8.h,
+                              left: 8.w,
+                              right: 6.w,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 1,
+                                  blurRadius: 1,
+                                  offset: const Offset(0, 0),
+                                ),
+                              ],
+                            ),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () async {
+                                materialNavigateTo(
+                                  child: BlocProvider(
+                                    create: (context) =&gt;
+                                        ChatCubit(prosDetail.pro_uid!),
+                                    child: ChatPage(
+                                      proDetails: prosDetail,
+                                    ),
+                                  ),
+                                  context: context,
+                                );
+
+                                &#47;&#47; await DatabaseService().addContactedPro(
+                                &#47;&#47;     prosDetail.pro_uid ?? &#39;&#39;, jobId ?? &#39;&#39;);
+                                await Dio().post(
+                                  &#39;https:&#47;&#47;housy-server.herokuapp.com&#47;notify_customer&#47;hireConfirmation&#39;,
+                                  data: {
+                                    &#39;cuid&#39;:
+                                        DatabaseService.auth.currentUser.uid,
+                                    &#39;proid&#39;: prosDetail.pro_uid
+                                  },
+                                ).then((value) =&gt; log(value.toString()));
+                              },
+                              icon: Icon(
+                                IconlyBold.chat,
+                                size: 24.sp,
+                                color: kPrimaryColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    : Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15.0,
+                          vertical: 10.0,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(10.0),
+                            bottomLeft: Radius.circular(10.0),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              IconlyLight.wallet,
+                              size: 20.sp,
+                              color: const Color(0xFFFFFFFF),
+                            ),
+                            SizedBox(width: 6.w),
+                            Text(
+                              &#39;₹&#39;,
+                              style: bold14TextStyle.copyWith(
+                                  color: Colors.white),
+                            ),
+                            SizedBox(width: 3.w),
+                            Text(
+                              budget.toString(),
+                              style: bold14TextStyle.copyWith(
+                                  color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      )
+              ],
+            ),
+
+            &#47;&#47;&#47; Pro dp, name, job category, ratings and job success.
+            Padding(
+              padding: EdgeInsets.only(left: 14.sp),
+              child: Row(
+                children: [
+                  &#47;&#47;&#47; Pro dp and name.
+                  InkWell(
+                    splashColor: Colors.grey,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) =&gt; MultiBlocProvider(
+                            providers: [
+                              BlocProvider.value(
+                                value: context.read&lt;JobScreenCubit&gt;(),
+                              ),
+                              BlocProvider.value(
+                                value: context.read&lt;ProScreenCubit&gt;(),
+                              ),
+                            ],
+                            child: ProDetailScreen(
+                              prosDetail: prosDetail,
+                              jobId: jobId,
+                              fromProfileClick: true,
+                              parentTab: parentTab,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        CachedNetworkImage(
+                          imageUrl: prosDetail.profile_url ??
+                              &#39;&#39;&#39;https:&#47;&#47;cdn3d.iconscout.com&#47;3d&#47;premium&#47;thumb&#47;user-3711850-3105265.png&#39;&#39;&#39;,
+                          imageBuilder: (context, imageProvider) =&gt;
+                              CircleAvatar(
+                            radius: 28.sp,
+                            foregroundImage: imageProvider,
+                          ),
+                          placeholder: (context, url) =&gt;
+                              const CircularProgressIndicator(),
+                          errorWidget: (context, url, error) =&gt;
+                              const Icon(Icons.error),
+                        ),
+                        SizedBox(width: 12.w),
+                        SizedBox(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                child: Text(
+                                  prosDetail.fullName ?? &#39;&#39;,
+                                  style: bold14TextStyle,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              SizedBox(height: 5.h),
+                              Text(
+                                prosDetail.service_type_selected ?? &#39;&#39;,
+                                style: normal12TextStyle.copyWith(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 3.w,
+                                  vertical: 2.5.h,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFF3F6FD),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: IntrinsicHeight(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        IconlyBold.star,
+                                        size: 12.sp,
+                                        color: const Color(0xFFFFCC3B),
+                                      ),
+                                      SizedBox(width: 2.w),
+                                      Text(
+                                        prosDetail.ratings?[&#39;rating&#39;]
+                                                .toString() ??
+                                            &#39;0&#39;,
+                                        style: TextStyle(
+                                          color: const Color(0xFF666666),
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                      VerticalDivider(
+                                        width: 12.w,
+                                        color: const Color(0xFF666666),
+                                        thickness: 0.75,
+                                      ),
+                                      Text(
+                                        &#39;&#39;&#39;${prosDetail.reviews != null ? prosDetail.reviews!.length.toString() : &#39;0&#39;} reviews&#39;&#39;&#39;,
+                                        style: TextStyle(
+                                          color: const Color(0xFF666666),
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+
+                  &#47;&#47; toggle between paid or offer widget and distance widget
+                  parentTab == prosScreenTab.onGoing
+
+                      &#47;&#47;&#47; Job Success widget
+                      ? JobSuccess(jobSuccessIndicator: jobSuccessIndicator)
+                      : PhoneAndChat(prosDetail: prosDetail, jobId: jobId),
+                ],
+              ),
+            ),
+
+            &#47;&#47;&#47; Timings &amp; See Available widgets
+            parentTab == prosScreenTab.onGoing &amp;&amp;
+                    job.first.jobType != &#39;One-Time&#39;
+                ? Container()
+                : Padding(
+                    padding: EdgeInsets.only(left: 14.w),
+                    child: IntrinsicHeight(
+                      child: Row(
+                        children: [
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.schedule_outlined,
+                              ),
+                              SizedBox(width: 1.w),
+                              Text(startTime.toString()),
+                              SizedBox(width: 1.w),
+                              Text(isStartTimeInPM ? &#39;PM&#39; : &#39;AM&#39;),
+                              SizedBox(width: 1.w),
+                              const Text(&#39;-&#39;),
+                              SizedBox(width: 1.w),
+                              Text(endTime),
+                              SizedBox(width: 1.w),
+                              Text(isEndTimeInPm ? &#39;PM&#39; : &#39;AM&#39;),
+                            ],
+                          ),
+                          const VerticalDivider(
+                            color: Color(0xFFAAAAAA),
+                            thickness: 1.0,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                IconlyLight.calendar,
+                                size: 15.sp,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              SizedBox(width: 3.w),
+                              if (parentTab == prosScreenTab.past)
+                                job.first.jobType != &#39;One-Time&#39;
+                                    ? GestureDetector(
+                                        onTap: () {
+                                          showAttendanceBottomSheet(
+                                            context,
+                                            prosDetail.pro_uid!,
+                                            job.first,
+                                          );
+                                        },
+                                        child: Text(
+                                          &#39;See Attendance&#39;,
+                                          style: normal14TextStyle.copyWith(
+                                            color: Theme.of(context)
+                                                .primaryColor,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                      )
+                                    : Text(
+                                        _date,
+                                        style: normal12TextStyle.copyWith(
+                                          color: const Color(0xFF212525),
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      )
+                              else
+                                Text(
+                                  &#39;See Available days&#39;,
+                                  style: normal14TextStyle.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+            &#47;&#47;&#47; Job details widget
+            parentTab == prosScreenTab.onGoing &amp;&amp;
+                    job.first.jobType != &#39;One-Time&#39;
+                ? Container()
+                : Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 14.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          &#39;Job Details:&#39;,
+                          style: normal12TextStyle.copyWith(
+                            color: const Color(0xFFA19FA8),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: 2.h),
+                        JobDetailTags(job: job.first, context: context),
+                      ],
+                    ),
+                  ),
+
+            &#47;&#47; Card buttons : (Track Job &amp; View Contract) (Hire &amp; Decline)
+            &#47;&#47;                (View Past Jobs &amp; Leave a Rating)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: FilledMaterialButton(
+                      color: kPinkAccentColor,
+                      onPressed: () {
+                        switch (parentTab) {
+                          case prosScreenTab.onGoing:
+                            &#47;&#47; Track Job
+                            Navigator.pushNamed(
+                              context,
+                              AppRouter.trackJob,
+                              arguments: {
+                                &#39;prosDetail&#39;: prosDetail,
+                                &#39;job&#39;: job.first,
+                              },
+                            );
+                            break;
+                          case prosScreenTab.inTalks:
+                            HousyAnalytics()
+                              ..logProHired(
+                                  pro: proId,
+                                  jobID: jobId,
+                                  priceQuote: &#39;0&#39;,
+                                  jobCategory: job.first.jobCategory ?? &#39;&#39;)
+                              ..logGenerateLead(job.first.jobCategory);
+                            Navigator.pushNamed(
+                                context, AppRouter.fundContract,
+                                arguments: {
+                                  &#39;pro&#39;: prosDetail,
+                                  &#39;job&#39;: job.first,
+                                });
+                            break;
+                          case prosScreenTab.past:
+                            &#47;&#47; View past jobs
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) =&gt; MultiBlocProvider(
+                                  providers: [
+                                    BlocProvider.value(
+                                      value: context.read&lt;JobScreenCubit&gt;(),
+                                    ),
+                                    BlocProvider.value(
+                                      value: context.read&lt;ProScreenCubit&gt;(),
+                                    ),
+                                  ],
+                                  child: ProDetailScreen(
+                                    prosDetail: prosDetail,
+                                    jobId: jobId,
+                                    fromProfileClick: false,
+                                    parentTab: parentTab,
+                                  ),
+                                ),
+                              ),
+                            );
+                            break;
+                        }
+                      },
+                      text: parentTab == prosScreenTab.onGoing
+                          ? &#39;Track Job&#39;
+                          : (parentTab == prosScreenTab.inTalks
+                              ? &#39;Hire&#39;
+                              : &#39;View Past Jobs (${job.length})&#39;),
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                  SizedBox(width: 15.w),
+                  Expanded(
+                    child: BorderMaterialButton(
+                      color: kPinkAccentColor,
+                      onPressed: () async {
+                        switch (parentTab) {
+                          case prosScreenTab.onGoing:
+                            await Navigator.pushNamed(
+                                context, AppRouter.viewContract,
+                                arguments: {
+                                  &#39;job&#39;: job.first,
+                                  &#39;prosDetail&#39;: prosDetail,
+                                });
+                            break;
+                          case prosScreenTab.inTalks:
+                            await DatabaseService().removeContactedPro(
+                                prosDetail.pro_uid!, jobId);
+                            await DatabaseService()
+                                .removeAppliedPro(prosDetail.pro_uid!, jobId);
+                            await DatabaseService()
+                                .addRejectedPro(prosDetail.pro_uid!, jobId);
+                            break;
+                          case prosScreenTab.past:
+                            break;
+                        }
+                      },
+                      text: parentTab == prosScreenTab.onGoing
+                          ? &#39;View Contract&#39;
+                          : (parentTab == prosScreenTab.inTalks
+                              ? &#39;Decline&#39;
+                              : &#39;Leave a Rating&#39;),
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            &#47;&#47; multiple jobs tabular UI
+            job.first.jobType != &#39;One-Time&#39; &amp;&amp;
+                    parentTab == prosScreenTab.onGoing
+                ? Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: buildMultiJobTabView(
+                          jobs: job,
+                          proId: proId,
+                          prosDetail: prosDetail,
+                        ),
+                      ),
+                    ),
+                  )
+                : Container(),
+          ],
+        ),
+      ),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">housy_customer</a></li>
+  <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/views_dashboard_pros_screen_proCard_pro_card-library.html">pro_card</a></li>
+  <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard-class.html">ProCard</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>ProCard class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard-class.html#constructors">Constructors</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/ProCard.html">ProCard</a></li>
+
+
+    <li class="section-title">
+      <a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/customPadding.html">customPadding</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/job.html">job</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/jobId.html">jobId</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/parentTab.html">parentTab</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/proId.html">proId</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/prosDetail.html">prosDetail</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../views_dashboard_pros_screen_proCard_pro_card/ProCard-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

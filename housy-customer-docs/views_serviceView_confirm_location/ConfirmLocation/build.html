@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the ConfirmLocation class, for the Dart programming language.">
+  <title>build method - ConfirmLocation class - confirm_location library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">housy_customer</a></li>
+    <li><a href="../../views_serviceView_confirm_location/views_serviceView_confirm_location-library.html">confirm_location</a></li>
+    <li><a href="../../views_serviceView_confirm_location/ConfirmLocation-class.html">ConfirmLocation</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../views_serviceView_confirm_location/ConfirmLocation/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  var _addressCubit = context.read&lt;AddressCubit&gt;();
+  var size = MediaQuery.of(context).size;
+  return BlocBuilder&lt;AddressCubit, AddressState&gt;(
+    builder: (context, state) {
+      var house = state.houseNo ?? &#39;&#39;;
+      var street = state.street ?? &#39;&#39;;
+      var landmark = state.landmark ?? &#39;&#39;;
+      var zipCode = state.pinCode ?? &#39;&#39;;
+      var countryValue = state.countryValue;
+      var stateValue = state.stateValue;
+      var cityValue = state.cityValue;
+      var area = state.area;
+      var isLoading = state.isLoading;
+      var addressType = state.addressType;
+
+      if (state.isFetchingLocation) {
+        return Scaffold(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Center(
+                child: CircularProgressIndicator(),
+              ),
+              SizedBox(height: 28.h),
+              const Text(&#39;Please wait. Fetching Location...&#39;)
+            ],
+          ),
+        );
+      }
+      return Scaffold(
+        backgroundColor: Colors.white,
+        resizeToAvoidBottomInset: true,
+        body: Stack(
+          children: [
+            Flex(
+              direction: Axis.vertical,
+              children: [
+                Flexible(
+                  flex: 3,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Stack(
+                      children: [
+                        GoogleMap(
+                          initialCameraPosition: CameraPosition(
+                              target: _initialcameraposition, zoom: 15),
+                          mapType: MapType.normal,
+                          padding: EdgeInsets.only(top: 22.h),
+                          myLocationEnabled: true,
+                          myLocationButtonEnabled: false,
+                          zoomControlsEnabled: false,
+                          onMapCreated: _addressCubit.onMapCreated,
+                          markers: {state.marker},
+                          onTap: _addressCubit.updateMarkerAndPosition,
+                        ),
+                        Positioned(
+                          right: 12.w,
+                          bottom: 12.h,
+                          child: Container(
+                            decoration: roundedContainerDecoration.copyWith(
+                                color: Colors.white),
+                            child: IconButton(
+                              onPressed: () {
+                                _addressCubit.animateMapToCurrentLocation();
+                              },
+                              icon: const Icon(
+                                Icons.gps_fixed_outlined,
+                                color: kPrimaryColor,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Flexible(
+                  flex: 7,
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 24.w, vertical: 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 40.h),
+                          Text(
+                            &#39;Provide service address&#39;,
+                            style: TextStyle(
+                              &#47;&#47; color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24.sp,
+                            ),
+                          ),
+                          const Divider(),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: const [
+                                TextSpan(
+                                  text: &#39;Location Tags &#39;,
+                                ),
+                                TextSpan(
+                                  text: &#39;*&#39;,
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          LocationTags(
+                            tapHandler: (AddressType type) {
+                              addressType = type;
+                              _addressCubit.emit(
+                                state.copyWith(addressType: type),
+                              );
+                            },
+                            addressType:
+                                state.addressType ?? AddressType.None,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(12.sp),
+                            child: ListTile(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              &#47;&#47; ignore: unnecessary_lambdas
+                              onTap: () async {
+                                await showAddressSearchDialog(
+                                  context,
+                                  _addressCubit,
+                                );
+
+                                await _addressCubit.autofillAddress();
+                              },
+                              horizontalTitleGap: 0,
+                              tileColor: kSecondaryGreyColor,
+                              leading: const Icon(IconlyLight.location),
+                              title: Text(
+                                area ?? &#39; &#39;,
+                                style: TextStyle(
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          const AddressForm(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SafeArea(
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: Icon(
+                  IconlyBold.arrowLeftCircle,
+                  size: 36.sp,
+                  color: Colors.black45,
+                ),
+              ),
+            )
+          ],
+        ),
+        bottomSheet: Container(
+          height: 75.h,
+          width: double.maxFinite,
+          decoration: roundedTOPContainerDecoration.copyWith(
+            boxShadow: [
+              const BoxShadow(color: Colors.grey, blurRadius: 4),
+            ],
+            color: Colors.white,
+          ),
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              &#47;&#47; ignore: deprecated_member_use
+              FlatButton(
+                minWidth: 0.8.sw,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 120.w,
+                  vertical: 0.045.sw,
+                ),
+                color: kPinkAccentColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                onPressed: !isLoading &amp;&amp;
+                        house != &#39;&#39; &amp;&amp;
+                        street != &#39;&#39; &amp;&amp;
+                        zipCode != &#39;&#39; &amp;&amp;
+                        addressType != null &amp;&amp;
+                        cityValue != null &amp;&amp;
+                        stateValue != null &amp;&amp;
+                        countryValue != null
+                    ? () async {
+                        _addressCubit.emit(state.copyWith(isLoading: true));
+                        &#47;&#47; isLoading = true;
+                        try {
+                          if (state.position == null) {
+                            await Fluttertoast.showToast(
+                                msg: &#39;Complete the address&#39;);
+
+                            _addressCubit
+                                .emit(state.copyWith(isLoading: false));
+                            &#47;&#47; isLoading = false;
+                          } else if (addressType.toString().length &lt; 2) {
+                            await Fluttertoast.showToast(
+                                msg: &#39;Select address type&#39;);
+
+                            _addressCubit
+                                .emit(state.copyWith(isLoading: false));
+                            &#47;&#47; isLoading = false;
+                          } else {
+                            debugPrint(&#39;***Validated***&#39;);
+                            var finalAddress =
+                                &#39;&#39;&#39;$house $street $landmark $cityValue $stateValue $zipCode $countryValue&#39;&#39;&#39;;
+                            var shortAddress =
+                                &#39;&#39;&#39;$landmark $cityValue $stateValue $zipCode $countryValue&#39;&#39;&#39;;
+                            debugPrint(finalAddress);
+                            await _databaseService
+                                .addAddress(state.toFSMap());
+                            await SharedPref.prefs.setString(
+                                PrefKeys.addressType, addressType.toString());
+                            await SharedPref.prefs
+                                .setString(PrefKeys.area, area.toString());
+
+                            &#47;&#47; ? New
+                            var _jobPostCubit = context.read&lt;JobpostCubit&gt;()
+                              ..changeAddress(
+                                finalAddress,
+                                shortAddress,
+                                addressType.toString(),
+                                GeoFirePoint(
+                                  state.position?.latitude ?? 0,
+                                  state.position?.longitude ?? 0,
+                                ),
+                              );
+
+                            if (_jobPostCubit.state.date != null &amp;&amp;
+                                _jobPostCubit.state.time != null) {
+                              await _jobPostCubit.submitJobPosting();
+                              await Fluttertoast.showToast(
+                                  msg: &#39;Job posted successfully!&#39;);
+
+                              _addressCubit
+                                  .emit(state.copyWith(isLoading: false));
+
+                              await Navigator.of(context)
+                                  .pushNamedAndRemoveUntil(
+                                AppRouter.dashboard,
+                                (route) =&gt; false,
+                                arguments: {
+                                  &#39;pageIndex&#39;: 1,
+                                  &#39;authCubit&#39;: context.read&lt;AuthCubit&gt;(),
+                                },
+                              );
+                            } else {
+                              await Fluttertoast.showToast(
+                                  msg: &#39;Please check date and time.&#39;);
+                            }
+                          }
+                        } catch (e, stack) {
+                          if (kDebugMode) {
+                            rethrow;
+                          }
+                          log(e.toString(), stackTrace: stack);
+                          _addressCubit
+                              .emit(state.copyWith(isLoading: false));
+                        }
+                      }
+                    : null,
+                disabledColor: Colors.grey,
+                child: isLoading
+                    ? Center(
+                        child: SizedBox(
+                          height: 18.sp,
+                          width: 18.sp,
+                          child: const CircularProgressIndicator(
+                            color: kPinkAccentColor,
+                          ),
+                        ),
+                      )
+                    : const Text(
+                        &#39;Submit Job&#39;,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">housy_customer</a></li>
+  <li><a href="../../views_serviceView_confirm_location/views_serviceView_confirm_location-library.html">confirm_location</a></li>
+  <li><a href="../../views_serviceView_confirm_location/ConfirmLocation-class.html">ConfirmLocation</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>ConfirmLocation class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../views_serviceView_confirm_location/ConfirmLocation-class.html#constructors">Constructors</a></li>
+    <li><a href="../../views_serviceView_confirm_location/ConfirmLocation/ConfirmLocation.html">ConfirmLocation</a></li>
+
+
+    <li class="section-title">
+      <a href="../../views_serviceView_confirm_location/ConfirmLocation-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../views_serviceView_confirm_location/ConfirmLocation/controller.html">controller</a></li>
+    <li><a href="../../views_serviceView_confirm_location/ConfirmLocation/geoMethods.html">geoMethods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../views_serviceView_confirm_location/ConfirmLocation-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../views_serviceView_confirm_location/ConfirmLocation/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../views_serviceView_confirm_location/ConfirmLocation/showAddressSearchDialog.html">showAddressSearchDialog</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../views_serviceView_confirm_location/ConfirmLocation-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

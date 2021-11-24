@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the showIsHiredBottomsheet function from the bottomsheets library, for the Dart programming language.">
+  <title>showIsHiredBottomsheet function - bottomsheets library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">housy_customer</a></li>
+    <li><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html">bottomsheets</a></li>
+    <li class="self-crumb">showIsHiredBottomsheet function</li>
+  </ol>
+  <div class="self-name">showIsHiredBottomsheet</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">showIsHiredBottomsheet</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
+<span class="name ">showIsHiredBottomsheet</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="showIsHiredBottomsheet-param-proId">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">proId</span>, </span></li>
+<li><span class="parameter" id="showIsHiredBottomsheet-param-job"><span>required</span> <span class="type-annotation"><a href="../data_models_job_model/Job-class.html">Job</a></span> <span class="parameter-name">job</span>, </span></li>
+<li><span class="parameter" id="showIsHiredBottomsheet-param-proDetails"><span>required</span> <span class="type-annotation"><a href="../data_models_pro/Pro-class.html">Pro</a></span> <span class="parameter-name">proDetails</span>, </span></li>
+<li><span class="parameter" id="showIsHiredBottomsheet-param-context"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="showIsHiredBottomsheet-param-showName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showName</span> = <span class="default-value">false</span>}</span></li>
+</ol>)
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future showIsHiredBottomsheet({
+  required String proId,
+  required Job job,
+  required Pro proDetails,
+  required BuildContext context,
+  bool showName = false,
+}) async {
+  var housyAnalytics = HousyAnalytics();
+  return await showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    isDismissible: false,
+    &#47;&#47; enableDrag: true,
+    shape: roundedRectangleBorder.copyWith(
+      borderRadius: const BorderRadius.only(
+        topLeft: Radius.circular(12),
+        topRight: Radius.circular(12),
+      ),
+    ),
+    builder: (_) {
+      debugPrint(&#39;Bottomsheet opened&#39;);
+      return Wrap(
+        children: [
+          Container(
+            &#47;&#47; height: 240.h,
+            padding: EdgeInsets.all(28.sp),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (showName)
+                  CachedNetworkImage(
+                    imageUrl: proDetails.profile_url ??
+                        &#39;&#39;&#39;https:&#47;&#47;cdn3d.iconscout.com&#47;3d&#47;premium&#47;thumb&#47;user-3711850-3105265.png&#39;&#39;&#39;,
+                    imageBuilder: (context, imageProvider) =&gt; CircleAvatar(
+                      foregroundImage: imageProvider,
+                    ),
+                  ),
+                if (showName) SizedBox(height: 24.h),
+                Text(
+                  &#39;&#39;&#39;Do you want to hire ${showName ? (proDetails.fullName) : &#39;&#39;&#39;this Service Provider&#39;&#39;&#39;}?&#39;&#39;&#39;,
+                  style: TextStyle(
+                    fontSize: 24.sp,
+                  ),
+                ),
+                const Divider(),
+                SizedBox(
+                  height: 50.h,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: FilledMaterialButton(
+                          color: kPinkAccentColor,
+                          text: &#39;Hire&#39;,
+                          onPressed: () async {
+                            housyAnalytics
+                              ..logContractGenerated()
+                              ..logGenerateLead(
+                                  proDetails.service_type_selected);
+                            Navigator.of(context).pop();
+                            materialNavigateTo(
+                                child: FundContractScreen(
+                                    job: job, pro: proDetails),
+                                context: context);
+                          },
+                        ),
+                      ),
+                      SizedBox(width: 8.0.w),
+                      Expanded(
+                        child: BorderMaterialButton(
+                          color: kPinkAccentColor,
+                          text: &#39;Not Yet&#39;,
+                          onPressed: () async {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 8.0.w),
+                Center(
+                  child: BorderMaterialButton(
+                    color: kPinkAccentColor,
+                    text: &#39;Reject this professional&#39;,
+                    onPressed: () async {
+                      await showDialog(
+                          context: context,
+                          builder: (_) {
+                            return Dialog(
+                              child: Padding(
+                                padding: EdgeInsets.all(24.sp),
+                                child: Wrap(
+                                  children: [
+                                    Text(
+                                      &#39;&#39;&#39;Are you sure you want to reject ?&#39;&#39;&#39;,
+                                      style: bold18TextStyle,
+                                    ),
+                                    Text(
+                                      &#39;&#39;&#39;If rejected this professional will be removed from the offers section.&#39;&#39;&#39;,
+                                      style: normal14TextStyle,
+                                    ),
+                                    SizedBox(height: 32.h),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: MaterialButton(
+                                        onPressed: () async {
+                                          await DatabaseService()
+                                              .addRejectedPro(
+                                                  proId, job.documentID!);
+
+                                          housyAnalytics.logProRejected();
+                                          Navigator.of(context).pop();
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text(
+                                          &#39;&#39;&#39;Yes. I&#39;m Sure&#39;&#39;&#39;,
+                                          style: blueTextStyle,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          });
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">housy_customer</a></li>
+  <li><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html">bottomsheets</a></li>
+  <li class="self-crumb">showIsHiredBottomsheet function</li>
+</ol>
+
+
+    <h5>bottomsheets library</h5>
+    <ol>
+
+
+
+
+
+  <li class="section-title"><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html#functions">Functions</a></li>
+  <li><a href="../widgets_bottomsheets/showAttendanceBottomSheet.html">showAttendanceBottomSheet</a></li>
+  <li><a href="../widgets_bottomsheets/showDeactivateAccountConfirmation.html">showDeactivateAccountConfirmation</a></li>
+  <li><a href="../widgets_bottomsheets/showIsHiredBottomsheet.html">showIsHiredBottomsheet</a></li>
+  <li><a href="../widgets_bottomsheets/showRateYourExperienceBottomSheet.html">showRateYourExperienceBottomSheet</a></li>
+  <li><a href="../widgets_bottomsheets/showReportDialog.html">showReportDialog</a></li>
+  <li><a href="../widgets_bottomsheets/showShareBottomSheet.html">showShareBottomSheet</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the showDeactivateAccountConfirmation function from the bottomsheets library, for the Dart programming language.">
+  <title>showDeactivateAccountConfirmation function - bottomsheets library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">housy_customer</a></li>
+    <li><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html">bottomsheets</a></li>
+    <li class="self-crumb">showDeactivateAccountConfirmation function</li>
+  </ol>
+  <div class="self-name">showDeactivateAccountConfirmation</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">showDeactivateAccountConfirmation</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
+<span class="name ">showDeactivateAccountConfirmation</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="showDeactivateAccountConfirmation-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future showDeactivateAccountConfirmation(BuildContext context) async {
+  return await showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext builderContext) {
+      return Stack(
+        children: [
+          Container(
+            color: Colors.transparent,
+            height: 400.h,
+            width: double.infinity,
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SizedBox(
+              width: 44.0,
+              height: 44.0,
+              child: FittedBox(
+                child: FloatingActionButton(
+                  backgroundColor: const Color(0xFFFFFFFF),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.clear,
+                    color: Color(0xFF0E0E0E),
+                    size: 32.0,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned.fill(
+            top: 80.h,
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: 12.w,
+                vertical: 16.h,
+              ),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    &#39;Are you sure you want to deactivate your account?&#39;,
+                    style: bold18TextStyle.copyWith(fontSize: 24.sp),
+                  ),
+                  SizedBox(height: 12.h),
+                  Text(
+                    &#39;&#39;&#39;Deactivating account will keep your profile hidden for 2 months before it is permanently deleted.\n\nLogging in will activate your account.&#39;&#39;&#39;,
+                    style: normal16TextStyle.copyWith(height: 1.25),
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    height: 52.h,
+                    child: BorderMaterialButton(
+                      text: &#39;Yes&#39;,
+                      onPressed: () async {
+                        if (await DatabaseService().deactivateAccount()) {
+                          await context.read&lt;AuthCubit&gt;().signOut();
+                          await SharedPref.prefs.clear();
+                          log(&#39;here&#39;);
+                          await Navigator.pushNamedAndRemoveUntil(
+                              context, AppRouter.home, (route) =&gt; false);
+                        }
+                      },
+                      color: kPinkAccentColor,
+                    ),
+                  ),
+                  SizedBox(height: 12.h),
+                  SizedBox(
+                    height: 52.h,
+                    child: FilledMaterialButton(
+                      text: &#39;No&#39;,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      color: kPinkAccentColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">housy_customer</a></li>
+  <li><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html">bottomsheets</a></li>
+  <li class="self-crumb">showDeactivateAccountConfirmation function</li>
+</ol>
+
+
+    <h5>bottomsheets library</h5>
+    <ol>
+
+
+
+
+
+  <li class="section-title"><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html#functions">Functions</a></li>
+  <li><a href="../widgets_bottomsheets/showAttendanceBottomSheet.html">showAttendanceBottomSheet</a></li>
+  <li><a href="../widgets_bottomsheets/showDeactivateAccountConfirmation.html">showDeactivateAccountConfirmation</a></li>
+  <li><a href="../widgets_bottomsheets/showIsHiredBottomsheet.html">showIsHiredBottomsheet</a></li>
+  <li><a href="../widgets_bottomsheets/showRateYourExperienceBottomSheet.html">showRateYourExperienceBottomSheet</a></li>
+  <li><a href="../widgets_bottomsheets/showReportDialog.html">showReportDialog</a></li>
+  <li><a href="../widgets_bottomsheets/showShareBottomSheet.html">showShareBottomSheet</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

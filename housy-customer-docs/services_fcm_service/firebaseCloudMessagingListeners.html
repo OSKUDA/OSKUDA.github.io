@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the firebaseCloudMessagingListeners function from the fcm_service library, for the Dart programming language.">
+  <title>firebaseCloudMessagingListeners function - fcm_service library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">housy_customer</a></li>
+    <li><a href="../services_fcm_service/services_fcm_service-library.html">fcm_service</a></li>
+    <li class="self-crumb">firebaseCloudMessagingListeners function</li>
+  </ol>
+  <div class="self-name">firebaseCloudMessagingListeners</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">firebaseCloudMessagingListeners</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype">void</span>
+<span class="name ">firebaseCloudMessagingListeners</span>(<wbr>)
+
+    </section>
+    
+<section class="desc markdown">
+  <p>This file 'fcm_service' contains service methods to setup, communicate, and
+post data back &amp; forth to/from firebase cloud messaging
+Setup listeners on <a href="https://pub.dev/documentation/firebase_messaging/10.0.4/firebase_messaging/FirebaseMessaging-class.html">FirebaseMessaging</a> instance and update user's device
+token</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">&#47;&#47;&#47; Setup listeners on [FirebaseMessaging] instance and update user&#39;s device
+&#47;&#47;&#47; token
+void firebaseCloudMessagingListeners() {
+  var _firebaseMessaging = FirebaseMessaging.instance;
+
+  _firebaseMessaging.getToken().then((token) {
+    &#47;&#47; debugPrint(&#39;Token-------&gt;$token&#39;);
+    DatabaseService().updateUserDeviceToken(token);
+  });
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">housy_customer</a></li>
+  <li><a href="../services_fcm_service/services_fcm_service-library.html">fcm_service</a></li>
+  <li class="self-crumb">firebaseCloudMessagingListeners function</li>
+</ol>
+
+
+    <h5>fcm_service library</h5>
+    <ol>
+
+
+
+
+
+  <li class="section-title"><a href="../services_fcm_service/services_fcm_service-library.html#functions">Functions</a></li>
+  <li><a href="../services_fcm_service/firebaseCloudMessagingListeners.html">firebaseCloudMessagingListeners</a></li>
+  <li><a href="../services_fcm_service/setupInteractedMessage.html">setupInteractedMessage</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

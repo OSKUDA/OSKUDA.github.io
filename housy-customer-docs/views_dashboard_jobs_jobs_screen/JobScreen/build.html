@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the JobScreen class, for the Dart programming language.">
+  <title>build method - JobScreen class - jobs_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">housy_customer</a></li>
+    <li><a href="../../views_dashboard_jobs_jobs_screen/views_dashboard_jobs_jobs_screen-library.html">jobs_screen</a></li>
+    <li><a href="../../views_dashboard_jobs_jobs_screen/JobScreen-class.html">JobScreen</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../views_dashboard_jobs_jobs_screen/JobScreen/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: BlocBuilder&lt;JobScreenCubit, JobScreenState&gt;(
+      builder: (context, state) {
+        if (state is JobScreenLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (state is JobScreenLoaded || state is JobScreenEmpty) {
+          var _jobs = context.watch&lt;JobScreenCubit&gt;().state.jobList;
+
+          return SafeArea(
+            child: SizedBox(
+              child: ContainedTabBarView(
+                tabBarProperties: TabBarProperties(
+                  indicator: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(14),
+                      topRight: Radius.circular(14),
+                    ),
+                    shape: BoxShape.rectangle,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  indicatorPadding: EdgeInsets.only(top: 48.h),
+                  height: 54.h,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  labelColor: Theme.of(context).primaryColor,
+                  unselectedLabelColor: Colors.black.withOpacity(0.65),
+                ),
+                tabs: [
+                  Text(
+                    &#39;Open&#39;,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.sp,
+                    ),
+                  ),
+                  Text(
+                    &#39;&#39;&#39;Ongoing (${_jobs.where(
+                          (element) =&gt;
+                              element.jobStatus?.status == &#39;Ongoing&#39; ||
+                              element.jobStatus?.status == &#39;Accepted&#39; ||
+                              element.jobStatus?.status == &#39;Resceduled&#39;,
+                        ).length})&#39;&#39;&#39;,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.sp,
+                    ),
+                  ),
+                  Text(
+                    &#39;Past&#39;,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15.sp,
+                    ),
+                  ),
+                ],
+                initialIndex: 0,
+                views: [
+                  &#47;&#47; Open Tab
+                  if (_jobs.isEmpty) const EmptyJobScreen(),
+                  if (_jobs.isNotEmpty)
+                    JobPostListWidget(
+                      jobs: _jobs
+                          .where((element) =&gt;
+                              element.jobStatus?.status == &#39;Open&#39;)
+                          .toList(),
+                      parentTab: JobScreenTabs.open,
+                    ),
+                  &#47;&#47; Ongoing tab
+                  if (_jobs
+                      .where((element) =&gt;
+                          element.jobStatus?.status == &#39;Ongoing&#39; ||
+                          element.jobStatus?.status == &#39;Accepted&#39; ||
+                          element.jobStatus?.status == &#39;Resceduled&#39;)
+                      .toList()
+                      .isEmpty)
+                    const EmptyJobScreen(
+                      heading: &#39;No Job Started Yet&#39;,
+                      para:
+                          &#39;&#39;&#39;Hire a Pro to start a job OR Tap ‘Start Posting’ button below to post a new job and start getting offers from the people for work.&#39;&#39;&#39;,
+                    ),
+                  if (_jobs
+                      .where((element) =&gt;
+                          element.jobStatus?.status == &#39;Ongoing&#39; ||
+                          element.jobStatus?.status == &#39;Accepted&#39; ||
+                          element.jobStatus?.status == &#39;Resceduled&#39;)
+                      .toList()
+                      .isNotEmpty)
+                    JobPostListWidget(
+                      jobs: _jobs
+                          .where((element) =&gt;
+                              element.jobStatus?.status == &#39;Ongoing&#39; ||
+                              element.jobStatus?.status == &#39;Accepted&#39; ||
+                              element.jobStatus?.status == &#39;Resceduled&#39;)
+                          .toList(),
+                      parentTab: JobScreenTabs.ongoing,
+                    ),
+                  &#47;&#47; Past tab
+                  if (_jobs
+                      .where((element) =&gt;
+                          element.jobStatus?.status == &#39;Cancelled&#39; ||
+                          element.jobStatus?.status == &#39;Completed&#39;)
+                      .toList()
+                      .isEmpty)
+                    const EmptyJobScreen(
+                      heading: &#39;No Job Completed Yet&#39;,
+                      para:
+                          &#39;&#39;&#39;Comeback here when a job gets completed. OR Tap ‘Start Posting’ button below to post a new job and start getting offers from the people for work.&#39;&#39;&#39;,
+                    ),
+                  if (_jobs
+                      .where((element) =&gt;
+                          element.jobStatus?.status == &#39;Cancelled&#39; ||
+                          element.jobStatus?.status == &#39;Expired&#39; ||
+                          element.jobStatus?.status == &#39;Completed&#39;)
+                      .toList()
+                      .isNotEmpty)
+                    JobPostListWidget(
+                      jobs: _jobs
+                          .where((element) =&gt;
+                              element.jobStatus?.status == &#39;Cancelled&#39; ||
+                              element.jobStatus?.status == &#39;Expired&#39; ||
+                              element.jobStatus?.status == &#39;Completed&#39;)
+                          .toList(),
+                      parentTab: JobScreenTabs.past,
+                    ),
+                ],
+                onChange: print,
+              ),
+            ),
+          );
+        }
+        return Container();
+      },
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">housy_customer</a></li>
+  <li><a href="../../views_dashboard_jobs_jobs_screen/views_dashboard_jobs_jobs_screen-library.html">jobs_screen</a></li>
+  <li><a href="../../views_dashboard_jobs_jobs_screen/JobScreen-class.html">JobScreen</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>JobScreen class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../views_dashboard_jobs_jobs_screen/JobScreen-class.html#constructors">Constructors</a></li>
+    <li><a href="../../views_dashboard_jobs_jobs_screen/JobScreen/JobScreen.html">JobScreen</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../views_dashboard_jobs_jobs_screen/JobScreen-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../views_dashboard_jobs_jobs_screen/JobScreen-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../views_dashboard_jobs_jobs_screen/JobScreen/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../views_dashboard_jobs_jobs_screen/JobScreen-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

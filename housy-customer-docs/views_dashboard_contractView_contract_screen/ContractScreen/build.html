@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the ContractScreen class, for the Dart programming language.">
+  <title>build method - ContractScreen class - contract_screen library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">housy_customer</a></li>
+    <li><a href="../../views_dashboard_contractView_contract_screen/views_dashboard_contractView_contract_screen-library.html">contract_screen</a></li>
+    <li><a href="../../views_dashboard_contractView_contract_screen/ContractScreen-class.html">ContractScreen</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../views_dashboard_contractView_contract_screen/ContractScreen/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  &#47;&#47; returns number of days between from and to
+  int daysBetween(DateTime from, DateTime to) {
+    from = DateTime(from.year, from.month, from.day);
+    to = DateTime(to.year, to.month, to.day);
+    return (to.difference(from).inHours &#47; 24).round() == 0
+        ? 1
+        : (to.difference(from).inHours &#47; 24).round() + 1;
+  }
+
+  final budget = job.proOffers?.where((element) {
+    var isP = element[&#39;proId&#39;] == prosDetail.pro_uid;
+    return isP;
+  }).toList()[0][&#39;budget&#39;];
+
+  final housyFee = budget * 0.25;
+
+  final time = job.proOffers?.where((element) {
+        return element[&#39;proId&#39;] == prosDetail.pro_uid;
+      }).toList()[0][&#39;timeSlot&#39;]?[0] ??
+      {
+        &#39;start&#39;: Timestamp.now(),
+        &#39;end&#39;: Timestamp.now(),
+      };
+
+  final timeStart = time[&#39;start&#39;] is Timestamp
+      ? (time[&#39;start&#39;] as Timestamp).toDate()
+      : DateTime.parse(time[&#39;start&#39;]);
+
+  final timeEnd = time[&#39;end&#39;] is Timestamp
+      ? (time[&#39;end&#39;] as Timestamp).toDate()
+      : DateTime.parse(time[&#39;end&#39;]);
+
+  final startTime =
+      &#39;&#39;&#39;${timeStart.hour &gt; 12 ? timeStart.hour - 12 : timeStart.hour}:${timeStart.minute.toString().length == 1 ? timeStart.minute.toString().padRight(2, &#39;0&#39;) : timeStart.minute}&#39;&#39;&#39;;
+
+  final endTime =
+      &#39;&#39;&#39;${timeEnd.hour &gt; 12 ? timeEnd.hour - 12 : timeEnd.hour}:${timeEnd.minute.toString().length == 1 ? timeEnd.minute.toString().padRight(2, &#39;0&#39;) : timeEnd.minute}&#39;&#39;&#39;;
+  var startDate =
+      DateFormat(&#39;d MMM&#39;).format((job.date?[0] as Timestamp).toDate());
+
+  var numberOfDays = daysBetween((job.date?[0] as Timestamp).toDate(),
+      (job.date?[1] as Timestamp).toDate());
+  return Scaffold(
+    appBar: BackAppBar(
+      appBarTitle: &#39;View Contract&#39;,
+      height: 150,
+      trailing: Padding(
+        padding: EdgeInsets.only(right: 12.w),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            GestureDetector(
+              onTap: () {},
+              child: Icon(
+                Icons.share,
+                size: 24.sp,
+              ),
+            ),
+            SizedBox(width: 12.w),
+            GestureDetector(
+              onTap: () async {
+                if (!await GenerateServiceConnectionChargesPdf(
+                        job: job, pro: prosDetail)
+                    .createPdf()) {
+                  await showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const AlertDialog(
+                          title: Text(&#39;Require storage permission!&#39;),
+                          content: Text(
+                              &#39;&#39;&#39;We need storage permission to download the invoice pdf&#39;&#39;&#39;),
+                        );
+                      });
+                }
+              },
+              child: Icon(
+                Icons.file_download_outlined,
+                size: 28.sp,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+    body: SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Divider(
+            thickness: 0.2,
+            color: Color(0xFFAAAAAA),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 26.h, left: 26.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  job.jobSubCategory ?? job.jobCategory ?? &#39;&#39;,
+                  style: bold16TextStyle.copyWith(
+                    color: const Color(0xFF0E0E0E),
+                  ),
+                ),
+                SizedBox(height: 6.h),
+                &#47;&#47; Amount row
+                Row(
+                  children: [
+                    Text(
+                      &#39;₹&#39;,
+                      style: TextStyle(
+                        fontSize: 26.sp,
+                        color: const Color(0xFF212525),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(width: 6.w),
+                    Text(
+                      budget.toString(),
+                      style: TextStyle(
+                        fontSize: 26.sp,
+                        color: const Color(0xff212525),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 12.h),
+                &#47;&#47; Job details row
+                Text(
+                  &#39;Job details:&#39;,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xFF666666),
+                    fontSize: 14.sp,
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                JobDetailTags(job: job, context: context),
+                SizedBox(height: 10.h),
+                &#47;&#47; Start Time &amp; End Time row
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.schedule,
+                      color: Color(0xFF666666),
+                      size: 24.0,
+                    ),
+                    SizedBox(width: 5.w),
+                    Text(
+                      startTime,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: const Color(0xFF666666),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    Text(
+                      &#39;-&#39;,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: const Color(0xFF666666),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    Text(
+                      endTime,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: const Color(0xFF666666),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+                &#47;&#47; Day Row
+                SizedBox(height: 4.h),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.date_range,
+                      color: Color(0xFF666666),
+                      size: 24.0,
+                    ),
+                    SizedBox(width: 5.w),
+                    Text(
+                      startDate,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: const Color(0xFF666666),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+                &#47;&#47; Number of days row
+                SizedBox(height: 4.h),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.update,
+                      color: Color(0xFF666666),
+                      size: 24.0,
+                    ),
+                    SizedBox(width: 5.w),
+                    Text(
+                      &#39;$numberOfDays days&#39;,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: const Color(0xFF666666),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 6.h,
+            ),
+            child: const Divider(
+              thickness: 0.2,
+              color: Color(0xFFAAAAAA),
+            ),
+          ),
+          &#47;&#47; Service provider detail
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 26.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  &#39;Service Provider&#39;,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xFF666666),
+                  ),
+                ),
+                SizedBox(height: 6.h),
+                Padding(
+                  padding: EdgeInsets.only(left: 3.w),
+                  child: Row(
+                    children: [
+                      CachedNetworkImage(
+                        imageUrl: prosDetail.profile_url ??
+                            &#39;&#39;&#39;https:&#47;&#47;cdn3d.iconscout.com&#47;3d&#47;premium&#47;thumb&#47;user-3711850-3105265.png&#39;&#39;&#39;,
+                        imageBuilder: (context, imageProvider) =&gt;
+                            CircleAvatar(
+                          radius: 24.sp,
+                          foregroundImage: imageProvider,
+                        ),
+                        placeholder: (context, url) =&gt;
+                            const CircularProgressIndicator(),
+                        errorWidget: (context, url, error) =&gt;
+                            const Icon(Icons.error),
+                      ),
+                      SizedBox(width: 8.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            prosDetail.fullName ?? &#39;&#39;,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14.sp,
+                              color: const Color(0xFF0E0E0E),
+                            ),
+                          ),
+                          SizedBox(height: 6.h),
+                          IntrinsicHeight(
+                            child: Row(
+                              children: [
+                                Text(
+                                  prosDetail.service_type_selected ?? &#39;&#39;,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                    color: const Color(0xFF979797),
+                                  ),
+                                ),
+                                const VerticalDivider(
+                                  color: Color(0xFF979797),
+                                ),
+                                Text(
+                                  prosDetail.service_type ?? &#39;&#39;,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                    color: const Color(0xFF979797),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 6.h,
+            ),
+            child: const Divider(
+              thickness: 0.2,
+              color: Color(0xFFAAAAAA),
+            ),
+          ),
+          &#47;&#47; Customer detail
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 36.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  &#39;Customer&#39;,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: const Color(0xFF666666),
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Text(
+                  job.customerName ?? &#39;&#39;,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14.sp,
+                    color: const Color(0xFF0E0E0E),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          &#47;&#47; Note
+          Padding(
+            padding: EdgeInsets.only(
+              left: 12.w,
+              right: 12.w,
+              top: 14.h,
+            ),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.error_outline,
+                  size: 18.sp,
+                  color: const Color(0xFF666666),
+                ),
+                SizedBox(width: 8.w),
+                Expanded(
+                  child: Text(
+                    &#39;&#39;&#39;Note: Service Provider will be paid after the service is completed&#39;&#39;&#39;,
+                    softWrap: true,
+                    style: TextStyle(
+                      fontSize: 10.sp,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xFF666666),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          &#47;&#47; Price container
+          Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: 12.w,
+              vertical: 8.h,
+            ),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 16.h,
+            ),
+            decoration: BoxDecoration(
+              color: const Color(0xFFF6F6F6),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Column(
+              children: [
+                &#47;&#47; Price Quote row
+                Row(
+                  children: [
+                    Text(
+                      &#39;Price Quote&#39;,
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF666666),
+                      ),
+                    ),
+                    const Spacer(),
+                    Row(
+                      children: [
+                        Text(
+                          &#39;₹&#39;,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: const Color(0xFF666666),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        SizedBox(width: 1.w),
+                        Text(
+                          budget.toString(),
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: const Color(0xFF666666),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 4.h),
+                  child: const Divider(
+                    thickness: 0.8,
+                    color: Color(0xFFE0E0E0),
+                  ),
+                ),
+                &#47;&#47; Housy Fee
+                Row(
+                  children: [
+                    Text(
+                      &#39;2.5% Housy Fee&#39;,
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF666666),
+                      ),
+                    ),
+                    const Spacer(),
+                    Row(
+                      children: [
+                        Text(
+                          &#39;+₹&#39;,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: const Color(0xFF666666),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        SizedBox(width: 1.w),
+                        Text(
+                          housyFee.toString(),
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: const Color(0xFF666666),
+                            fontWeight: FontWeight.w400,
+                            decoration: TextDecoration.lineThrough,
+                            decorationThickness: 2.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 4.h),
+                  child: const Divider(
+                    thickness: 2.0,
+                    color: Color(0xFFE0E0E0),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      &#39;Total Fee&#39;,
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF0E0E0E),
+                      ),
+                    ),
+                    const Spacer(),
+                    Row(
+                      children: [
+                        Text(
+                          &#39;₹&#39;,
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xFF0E0E0E),
+                          ),
+                        ),
+                        SizedBox(width: 1.w),
+                        Text(
+                          budget.toString(),
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xFF0E0E0E),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">housy_customer</a></li>
+  <li><a href="../../views_dashboard_contractView_contract_screen/views_dashboard_contractView_contract_screen-library.html">contract_screen</a></li>
+  <li><a href="../../views_dashboard_contractView_contract_screen/ContractScreen-class.html">ContractScreen</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>ContractScreen class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../views_dashboard_contractView_contract_screen/ContractScreen-class.html#constructors">Constructors</a></li>
+    <li><a href="../../views_dashboard_contractView_contract_screen/ContractScreen/ContractScreen.html">ContractScreen</a></li>
+
+
+    <li class="section-title">
+      <a href="../../views_dashboard_contractView_contract_screen/ContractScreen-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+    <li><a href="../../views_dashboard_contractView_contract_screen/ContractScreen/job.html">job</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+    <li><a href="../../views_dashboard_contractView_contract_screen/ContractScreen/prosDetail.html">prosDetail</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../views_dashboard_contractView_contract_screen/ContractScreen-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../views_dashboard_contractView_contract_screen/ContractScreen/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../views_dashboard_contractView_contract_screen/ContractScreen-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

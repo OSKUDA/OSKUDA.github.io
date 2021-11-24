@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the showReportDialog function from the bottomsheets library, for the Dart programming language.">
+  <title>showReportDialog function - bottomsheets library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">housy_customer</a></li>
+    <li><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html">bottomsheets</a></li>
+    <li class="self-crumb">showReportDialog function</li>
+  </ol>
+  <div class="self-name">showReportDialog</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">showReportDialog</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
+<span class="name ">showReportDialog</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="showReportDialog-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="showReportDialog-param-prosDetail"><span class="type-annotation"><a href="../data_models_pro/Pro-class.html">Pro</a></span> <span class="parameter-name">prosDetail</span></span></li>
+</ol>)
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future showReportDialog(BuildContext context, Pro prosDetail) async {
+  return await showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+        ),
+      ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      builder: (builderContext) {
+        var textEditingController = TextEditingController();
+        return Padding(
+          padding: MediaQuery.of(context).viewInsets,
+          child: BlocProvider(
+            create: (context) =&gt; ReportDialogCubit(),
+            child: Stack(children: [
+              Container(
+                color: Colors.transparent,
+                height: 450.h,
+                width: double.infinity,
+              ),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: FloatingActionButton(
+                  backgroundColor: const Color(0xFFFFFFFF),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.clear,
+                    color: Color(0xFF0E0E0E),
+                  ),
+                ),
+              ),
+              Positioned.fill(
+                top: 80.h,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(15.0),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      &#47;&#47;&#47; Report Issues heading container
+                      Container(
+                        width: double.infinity,
+                        height: 80.h,
+                        padding: EdgeInsets.only(left: 20.w),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(15.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: const Offset(0, 0),
+                            ),
+                          ],
+                        ),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            &#39;Report Issues&#39;,
+                            style: bold18TextStyle.copyWith(
+                              fontSize: 24.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      BlocBuilder&lt;ReportDialogCubit, ReportDialogState&gt;(
+                        builder: (context, state) {
+                          if (state is ReportDialogInitial) {
+                            return Container(
+                              width: double.infinity,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 16.w,
+                                vertical: 16.h,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    &#39;&#39;&#39;Why are you reporting this account?&#39;&#39;&#39;,
+                                    style: bold16TextStyle.copyWith(
+                                      fontSize: 18.0,
+                                    ),
+                                  ),
+                                  SizedBox(height: 12.h),
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      primary: const Color(0xFF212525),
+                                    ),
+                                    onPressed: () {
+                                      context
+                                          .read&lt;ReportDialogCubit&gt;()
+                                          .reportReasonSubmitted(
+                                              ReportType.reportProfessional);
+                                    },
+                                    child: Text(
+                                      &#39;&#39;&#39;Report Professional&#39;&#39;&#39;,
+                                      style: bold14TextStyle,
+                                    ),
+                                  ),
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      primary: const Color(0xFF212525),
+                                    ),
+                                    onPressed: () {
+                                      context
+                                          .read&lt;ReportDialogCubit&gt;()
+                                          .reportReasonSubmitted(
+                                              ReportType.reportPostOrMessage);
+                                    },
+                                    child: Text(
+                                      &#39;&#39;&#39;Report Post or Message&#39;&#39;&#39;,
+                                      style: bold14TextStyle,
+                                    ),
+                                  ),
+                                  TextButton(
+                                    style: TextButton.styleFrom(
+                                      primary: const Color(0xFF212525),
+                                    ),
+                                    onPressed: () {
+                                      context
+                                          .read&lt;ReportDialogCubit&gt;()
+                                          .reportReasonSubmitted(
+                                              ReportType.reportSpam);
+                                    },
+                                    child: Text(
+                                      &#39;&#39;&#39;Report Spam&#39;&#39;&#39;,
+                                      style: bold14TextStyle,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          } else if (state is ReportDialogReasonFilled) {
+                            return Expanded(
+                              child: Container(
+                                width: double.infinity,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 16.w,
+                                  vertical: 16.h,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Text(
+                                      &#39;&#39;&#39;What is the issue you are facing?&#39;&#39;&#39;,
+                                      style: bold16TextStyle.copyWith(
+                                        fontSize: 18.0,
+                                      ),
+                                    ),
+                                    TextField(
+                                      controller: textEditingController,
+                                      keyboardType: TextInputType.multiline,
+                                      maxLines: 6,
+                                      maxLength: 255,
+                                      decoration: InputDecoration(
+                                        filled: true,
+                                        fillColor: const Color(0xFFF6F6F6),
+                                        hintText: state.reportType ==
+                                                ReportType.reportProfessional
+                                            ? &#39;&#39;&#39;eg. the person was unprofessional&#39;&#39;&#39;
+                                            : state.reportType ==
+                                                    ReportType
+                                                        .reportPostOrMessage
+                                                ? &#39;&#39;&#39;eg. received inappropriate messages&#39;&#39;&#39;
+                                                : state.reportType ==
+                                                        ReportType.reportSpam
+                                                    ? &#39;eg. fake account&#39;
+                                                    : &#39;&#39;,
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              color: Colors.white),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: const BorderSide(
+                                              color: Colors.white),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 52.h,
+                                      child: FilledMaterialButton(
+                                        text: &#39;Submit&#39;,
+                                        fontSize: 18.0,
+                                        onPressed: () {
+                                          context
+                                              .read&lt;ReportDialogCubit&gt;()
+                                              .reportDetailSubmitted(
+                                                textEditingController.text,
+                                                prosDetail,
+                                                FirebaseAuth
+                                                    .instance.currentUser!.uid,
+                                              );
+                                        },
+                                        color: kPrimaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          } else if (state is ReportDialogDetailFilled) {
+                            return Expanded(
+                              child: Container(
+                                width: double.infinity,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 16.w,
+                                  vertical: 16.h,
+                                ),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(8.0),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: const Color(0xFF16C151)
+                                                .withAlpha(50),
+                                            spreadRadius: 5,
+                                            blurRadius: 7,
+                                            offset: const Offset(0, 0),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ElevatedButton(
+                                        onPressed: () {},
+                                        style: ElevatedButton.styleFrom(
+                                          shape: const CircleBorder(),
+                                          padding: const EdgeInsets.all(20),
+                                          primary: const Color(0xFF16C151),
+                                        ),
+                                        child: state.submitSuccess
+                                            ? const Icon(
+                                                Icons.check,
+                                                color: Color(0xFFFFFFFF),
+                                              )
+                                            : const Icon(
+                                                Icons.clear,
+                                                color: Color(0xFFFF516E),
+                                              ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                          top: 16.h,
+                                          left: 12.w,
+                                          right: 12.w,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.stretch,
+                                          children: [
+                                            Text(
+                                                state.submitSuccess
+                                                    ? &#39;&#39;&#39;Thank you, we received your report&#39;&#39;&#39;
+                                                    : &#39;&#39;&#39;Report submission failed!&#39;&#39;&#39;,
+                                                style: bold18TextStyle),
+                                            SizedBox(height: 12.h),
+                                            Text(
+                                              state.submitSuccess
+                                                  ? &#39;&#39;&#39;We’ll review your report and look into the issue, You will be contacted shortly.&#39;&#39;&#39;
+                                                  : &#39;&#39;&#39;Try again later&#39;&#39;&#39;,
+                                              style: normal14TextStyle.copyWith(
+                                                  color:
+                                                      const Color(0xff666666)),
+                                            ),
+                                            const Spacer(),
+                                            SizedBox(
+                                              height: 52.h,
+                                              child: FilledMaterialButton(
+                                                text: state.submitSuccess
+                                                    ? &#39;&#39;&#39;Done&#39;&#39;&#39;
+                                                    : &#39;&#39;&#39;Try again&#39;&#39;&#39;,
+                                                fontSize: 18.0,
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                color: kPrimaryColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          }
+                          return const Text(&#39;Error 404&#39;);
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ]),
+          ),
+        );
+      });
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">housy_customer</a></li>
+  <li><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html">bottomsheets</a></li>
+  <li class="self-crumb">showReportDialog function</li>
+</ol>
+
+
+    <h5>bottomsheets library</h5>
+    <ol>
+
+
+
+
+
+  <li class="section-title"><a href="../widgets_bottomsheets/widgets_bottomsheets-library.html#functions">Functions</a></li>
+  <li><a href="../widgets_bottomsheets/showAttendanceBottomSheet.html">showAttendanceBottomSheet</a></li>
+  <li><a href="../widgets_bottomsheets/showDeactivateAccountConfirmation.html">showDeactivateAccountConfirmation</a></li>
+  <li><a href="../widgets_bottomsheets/showIsHiredBottomsheet.html">showIsHiredBottomsheet</a></li>
+  <li><a href="../widgets_bottomsheets/showRateYourExperienceBottomSheet.html">showRateYourExperienceBottomSheet</a></li>
+  <li><a href="../widgets_bottomsheets/showReportDialog.html">showReportDialog</a></li>
+  <li><a href="../widgets_bottomsheets/showShareBottomSheet.html">showShareBottomSheet</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the changeBudget method from the ApplyJobCubit class, for the Dart programming language.">
+  <title>changeBudget method - ApplyJobCubit class - active_job_cubit_extensions library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">housy_customer</a></li>
+    <li><a href="../../data_cubits_active_job_active_job_cubit_extensions/data_cubits_active_job_active_job_cubit_extensions-library.html">active_job_cubit_extensions</a></li>
+    <li><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit-class.html">ApplyJobCubit</a></li>
+    <li class="self-crumb">changeBudget method</li>
+  </ol>
+  <div class="self-name">changeBudget</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">changeBudget</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype">void</span>
+<span class="name ">changeBudget</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="changeBudget-param-budget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">budget</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Update the <code>budget</code> of the Job</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">void changeBudget(int budget) {
+  emit(
+    state.copyWith(
+      applyJobState: state.applyJobState.copyWith(budget: budget),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">housy_customer</a></li>
+  <li><a href="../../data_cubits_active_job_active_job_cubit_extensions/data_cubits_active_job_active_job_cubit_extensions-library.html">active_job_cubit_extensions</a></li>
+  <li><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit-class.html">ApplyJobCubit</a></li>
+  <li class="self-crumb">changeBudget method</li>
+</ol>
+
+
+    <h5>ApplyJobCubit class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit-class.html#constructors">Constructors</a></li>
+    <li><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit/ApplyJobCubit.html">ApplyJobCubit</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/isClosed.html">isClosed</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/state.html">state</a></li>
+    <li class="inherited"><a href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/stream.html">stream</a></li>
+
+    <li class="section-title"><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/addError.html">addError</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/cancelJob.html">cancelJob</a></li>
+    <li><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit/changeBudget.html">changeBudget</a></li>
+    <li><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit/changeDateTime.html">changeDateTime</a></li>
+    <li><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit/changeDuration.html">changeDuration</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/changePro.html">changePro</a></li>
+    <li class="inherited"><a href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/close.html">close</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/completeJob.html">completeJob</a></li>
+    <li class="inherited"><a href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/emit.html">emit</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/getAreaFromLocation.html">getAreaFromLocation</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/getAvailableTime.html">getAvailableTime</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/getCurrentPage.html">getCurrentPage</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/getJobStatusPercentage.html">getJobStatusPercentage</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/getJobStatusText.html">getJobStatusText</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/isDateInWorkingHours.html">isDateInWorkingHours</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/isDayAvailabe.html">isDayAvailabe</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/jobStatusOnTap.html">jobStatusOnTap</a></li>
+    <li class="inherited"><a class="deprecated" href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/listen.html">listen</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/onChange.html">onChange</a></li>
+    <li class="inherited"><a href="https://pub.dev/documentation/bloc/7.2.1/bloc/BlocBase/onError.html">onError</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/recordJobCubitException.html">recordJobCubitException</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/rescheduleJob.html">rescheduleJob</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/startJob.html">startJob</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/startJobSnapshotListener.html">startJobSnapshotListener</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="../../data_cubits_active_job_active_job_cubit/ActiveJobCubit/undoReject.html">undoReject</a></li>
+
+    <li class="section-title inherited"><a href="../../data_cubits_active_job_active_job_cubit_extensions/ApplyJobCubit-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    housy_customer
+      1.0.10-dev.1+44
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
